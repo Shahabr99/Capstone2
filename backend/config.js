@@ -6,7 +6,7 @@ const SECRET_KEY = process.env.SECRET_KEY || "webdev-secret-agent";
 const PORT = +process.env.PORT || 3001;
 
 function getDatabase() {
-  return process.env.NODE_ENV = "test" ? "tuneFlow-test" : process.env.DATABASE_URL || "tuneFlow";
+  return process.env.NODE_ENV = "test" ? "tuneflow_test" : process.env.DATABASE_URL || "tuneflow";
 }
 
 const BCRYPT_WORK_FACTOR = process.env.NODE_ENV === "test" ? 1 : 12;
