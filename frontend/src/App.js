@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState, useEffect} from "react";
+import useLocalStorage from "../hooks/";
+import tuneflowApi from "../api/api";
+
+// Key name for storing token in localStorage for "remember me" re-login
+export const TOKEN_ID = "tuneflow-token";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const [infoLoaded, setInfoLoaded] = useState(false);
+  const [token, setToken] = useLocalStorage(TOKEN_ID)
+  const [currentUser, setCurrentUser] = useState(null);
+
+
+  useEffect(function loadUsrInfo() {
+  }, [token])
 }
 
 export default App;

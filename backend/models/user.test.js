@@ -1,7 +1,7 @@
 const {commonBeforeAll, commonBeforeEach, commonAfterEach, commonAfterAll} = require("./commonTest");
 const User = require("./newUser");
 const {BadRequestError, NotFoundError, UnauthorizedError, ForbiddenError} = require("../expressError")
-// TODO Incomeplete test dile. Add more test...
+// TODO Incomeplete test file. Add more test...
 beforeAll(commonBeforeAll);
 beforeEach(commonBeforeEach);
 afterEach(commonAfterEach);

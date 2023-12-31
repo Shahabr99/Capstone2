@@ -9,7 +9,7 @@ CREATE TABLE users (
 CREATE TABLE playlists (
   id INTEGER PRIMARY KEY,
   name TEXT NOT NULL,
-  user_id VARCHAR(25) REFERENCES users(username) ON DELETE CASCADE
+  username_playlist VARCHAR(25) REFERENCES users(username) ON DELETE CASCADE
 ); 
 
 

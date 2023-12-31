@@ -78,6 +78,20 @@ class User {
     const user = result.user[0];
     if(!user) throw new NotFoundError(`No user: ${username``}`)
   }
+
+  static async get(username) {
+    const result = await db.query(`SELECT username, name, lastname, email FROM users WHERE username == $1`, [username]);
+    const user = result.rows[0];
+    if(!user) throw new NotFoundError("No user found!");
+    return user
+  }
+
+  static async getUserPlaylists(username) {
+    const result = await db.query(`SELECT name FROM playlists WHERE username_playlist == $1`, [username]);
+    const playlists = result.rows;
+    if(!playlists) throw new NotFoundError("No playlists found");
+    return playlists
+  }
 }
 
 module.exports = User;
