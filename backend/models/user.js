@@ -90,8 +90,10 @@ class User {
     const result = await db.query(`SELECT name FROM playlists WHERE username_playlist == $1`, [username]);
     const playlists = result.rows;
     if(!playlists) throw new NotFoundError("No playlists found");
-    return playlists
+    return playlists;
   }
+
+  
 }
 
 module.exports = User;

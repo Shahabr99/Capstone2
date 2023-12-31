@@ -21,7 +21,6 @@ class tuneflowApi {
     }
   }
 
-
   static async getCurrentUser(username) {
     const res = await this.request(`/users/${username}`);
     return res.user;

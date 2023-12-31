@@ -13,3 +13,13 @@ router.get("/:username",ensureLoggedIn, async function(req, res, next) {
     return next(err)
   }
 });
+
+
+router.get("/:username/playlists", async function(req, res, next) {
+  try {
+    const result = await User.getUserPlaylists(req.params)
+    return res.json(result)
+  }catch(err) {
+    return next(err)
+  }
+})
