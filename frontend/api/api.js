@@ -21,24 +21,31 @@ class tuneflowApi {
     }
   }
 
+
   static async getCurrentUser(username) {
     const res = await this.request(`/users/${username}`);
     return res.user;
   }
 
+
   static async getPlaylists(username) {
-    const res = await this.request(`/${username}/playlists`);
+    const res = await this.request(`/playlists/${username}`);
+    return res.playlists;
   }
 
+
   static async getTracks(playlist) {
-    const res = await this.request(`/${playlist}/tracks`)
+    const res = await this.request(`playlists/${playlist}/tracks`);
+    return res.tracks;
   }
+
 
   static async login(data) {
     const res = await this.request("/login", data, "post");
     return res.token;
   }
 
+  
   static async signup(data) {
     const res = await this.request(`/register`, data, "post");
     return res.token;

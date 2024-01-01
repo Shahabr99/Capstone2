@@ -52,7 +52,7 @@ class User {
     }
   }
 
-
+  // Changes user info in database
   static async updateUser(username, data) {
     const {setCols, values} = sqlForPartialUpdate(
       data
@@ -71,7 +71,7 @@ class User {
     return user;
   }
 
-
+  // deletes a user from db
   static async remove(username) {
     let result = db.query(`DELETE FROM users WHERE username = $1 RETURNING username`, [username]);
 
@@ -79,6 +79,7 @@ class User {
     if(!user) throw new NotFoundError(`No user: ${username``}`)
   }
 
+  // Gets a user's information from db
   static async get(username) {
     const result = await db.query(`SELECT username, name, lastname, email FROM users WHERE username == $1`, [username]);
     const user = result.rows[0];
@@ -86,6 +87,7 @@ class User {
     return user
   }
 
+  // Fetches the playlists of a user
   static async getUserPlaylists(username) {
     const result = await db.query(`SELECT name FROM playlists WHERE username_playlist == $1`, [username]);
     const playlists = result.rows;
