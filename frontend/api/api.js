@@ -2,9 +2,8 @@ import axios from "axios";
 const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
 
 
-
 class tuneflowApi {
-
+  // static token variable to get it updated
   static token;
 
   static async request(endpoint, data={}, method="get") {
@@ -14,6 +13,7 @@ class tuneflowApi {
     const params = (method === "get") ? data : {};
 
     try {
+      // TODO
       return (await axios({url, method, data, params, headers})).data;
     }catch(err) {
       let message = err.response.data.error.message;
@@ -21,7 +21,7 @@ class tuneflowApi {
     }
   }
 
-
+  // Get current user info from database
   static async getCurrentUser(username) {
     const res = await this.request(`/users/${username}`);
     return res.user;
@@ -45,13 +45,12 @@ class tuneflowApi {
     return res.token;
   }
 
-  
+
   static async signup(data) {
     const res = await this.request(`/register`, data, "post");
     return res.token;
   }
 }
-
 
 
 export default tuneflowApi;

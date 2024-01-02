@@ -14,8 +14,7 @@ CREATE TABLE playlists (
 
 
 CREATE TABLE artists (
-  id INTEGER PRIMARY KEY,
-  name TEXT NOT NULL,
+  name TEXT NOT NULL UNIQUE,
   image_url TEXT
 );
 
@@ -25,13 +24,12 @@ CREATE TABLE tracks (
   title TEXT NOT NULL,
   image_url TEXT,
   length int,
-  playlist_id INTEGER NOT NULL REFERENCES playlists(id) ON DELETE CASCADE,
-  artist_id INTEGER REFERENCES artists(id) ON DELETE CASCADE
+  playlist_name INTEGER NOT NULL REFERENCES playlists(id) ON DELETE CASCADE
 );
 
 
 CREATE TABLE playlists_tracks (
   id INTEGER PRIMARY KEY,
-  playlist_id INTEGER REFERENCES playlists(id) ON DELETE CASCADE,
+  playlist_name INTEGER REFERENCES playlists(name) ON DELETE CASCADE,
   track_id INTEGER REFERENCES tracks(id) ON DELETE CASCADE
 );

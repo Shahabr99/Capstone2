@@ -10,7 +10,7 @@ function useLocalStorage(key, firstValue = null) {
   useEffect(function setKeyInLocalStorage() {
     if(item === null) {
       localStorage.removeItem(key);
-    }else {
+    } else {
       localStorage.setItem(key, item)
     }
   }, [key, item]);
