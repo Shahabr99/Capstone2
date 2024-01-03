@@ -1,9 +1,11 @@
 import {Link} from "react-router-dom";
+import React, {useContext} from 'react';
+import DataContext from "../helpers/DataContext"
 
 
+function Navigation(logout) {
 
-function Navigation() {
-
+  const {currentUser} = useContext(DataContext)
 
   function loggedIn() {
     return (

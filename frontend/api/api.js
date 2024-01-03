@@ -13,7 +13,7 @@ class tuneflowApi {
     const params = (method === "get") ? data : {};
 
     try {
-      // TODO
+      //TODO
       return (await axios({url, method, data, params, headers})).data;
     }catch(err) {
       let message = err.response.data.error.message;

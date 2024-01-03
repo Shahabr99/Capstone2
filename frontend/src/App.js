@@ -5,6 +5,7 @@ import jwt from "jsonwebtoken";
 import {BrowserRouter} from "react-router-dom";
 import Navigation from "../Nav-Routes/Navigation";
 import MainRoutes from "../Nav-Routes/MainRoutes";
+import DataContext from "../helpers/dataContext";
 
 // Key name for storing token in localStorage for "remember me" re-login
 export const TOKEN_ID = "tuneflow-token";
@@ -48,7 +49,7 @@ function App() {
     setToken(null)
   }
 
-
+  // 
   async function signup(signupData) {
     try {
       let token = await tuneflowApi.signup(signupData);
@@ -74,10 +75,16 @@ function App() {
 
 
   return (
-    <BrowserRouter>
-      <Navigation />
-      <MainRoutes />
-    </BrowserRouter>
+    <div>
+      <BrowserRouter>
+        <DataContext.Provider value={{currentUser, login, signup, logout}}>
+        
+          <Navigation logout={logout} />
+          <MainRoutes  />
+        
+        </DataContext.Provider>
+      </BrowserRouter>
+    </div>
   )
 }
 
