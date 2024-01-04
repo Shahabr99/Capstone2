@@ -1,6 +1,6 @@
-import {Link} from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
 import React, {useContext} from 'react';
-import DataContext from "../helpers/DataContext"
+import DataContext from "../helpers/DataContext";
 
 
 function Navigation(logout) {
@@ -10,9 +10,19 @@ function Navigation(logout) {
   function loggedIn() {
     return (
       <ul>
-        <li>Home</li>
-        <li>Playlists</li>
-        <li>Profile</li>
+        <li>
+          <NavLink to="/playlists">
+            Playlists
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/profile">
+            Profile
+          </NavLink>
+        </li>
+        <li>
+          <Link to="/" onClick={logout} >Logout</Link>
+        </li>
       </ul>
     )
   }
@@ -21,8 +31,16 @@ function Navigation(logout) {
   function loggedOut() {
     return (
       <ul>
-        <li>Login</li>
-        <li>Register</li>
+        <li>
+          <NavLink to="/login">
+            Login
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/signup">
+            Register
+          </NavLink>
+        </li>
       </ul>
     )
   }
@@ -30,8 +48,8 @@ function Navigation(logout) {
 
   return(
     <nav>
-      <Link>Tuneflow</Link>
-      {currentUser ? loggedIn : loggedOut}
+      <Link to="/">Tuneflow</Link>
+      {currentUser ? loggedIn() : loggedOut()}
     </nav>
   )
 }

@@ -3,6 +3,7 @@ const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
 
 
 class tuneflowApi {
+  
   // static token variable to get it updated
   static token;
 
