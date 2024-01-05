@@ -1,15 +1,17 @@
 import React from 'react';
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Routes, Route } from 'react-router-dom';
 import LoginForm from "../forms/LoginForm";
 import RegistrationForm from '../forms/RegistrationForm';
+import Homepage from '../Homepage';
 
-function MainRoutes({login, signup}) {
+
+function MainRoutes() {
 
 
 
   return (
     <div>
-      <Switch>
+      <Routes>
         <Route exact path="/">
           <Homepage />
         </Route>
@@ -22,8 +24,7 @@ function MainRoutes({login, signup}) {
           <RegistrationForm />
         </Route>
 
-        <Route></Route>
-      </Switch>
+      </Routes>
     </div>
   )
 }

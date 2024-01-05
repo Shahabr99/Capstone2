@@ -1,10 +1,10 @@
 import React, {useState, useContext} from 'react';
-import {Link, useHistory} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import DataContext from '../helpers/DataContext';
 import Alert from "../common/Alert";
 
 function LoginForm() {
-  let history = useHistory();
+  let navigate = useNavigate();
   const [formErrors, setFormErrors] = useState([])
   const {login} = useContext(DataContext)
   const [formData, setFormData] = useState({
@@ -17,7 +17,7 @@ function LoginForm() {
     e.preventDefault();
     const result = await login(formData);
     if(result.sucess) {
-      history.push("/")
+      navigate("/")
     }else{
       setFormErrors(result.errors)
     }

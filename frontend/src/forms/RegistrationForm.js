@@ -1,13 +1,13 @@
 import {useState, useContext} from "react";
 import DataContext from "../helpers/DataContext";
-import {Link, useHistory} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import Alert from "../common/Alert";
 
 
 
 
 function RegistrationForm() {
-  let history = useHistory();
+  let navigate = useNavigate();
   const [formErrors, setFormErrors] = useState([])
   const {signup} = useContext(DataContext)
   const [formData, setFormData] = useState({
@@ -30,7 +30,7 @@ function RegistrationForm() {
     e.preventDefault();
     const result = await signup(formData);
     if(result.success) {
-      history.push("/")
+      navigate("/")
     }else{
       setFormErrors(result.errors)
     }

@@ -1,11 +1,13 @@
 import React, {useState, useEffect} from "react";
-import useLocalStorage from "../hooks/";
-import tuneflowApi from "../api/api";
+import useLocalStorage from "./hooks/useLocalStorage";
+import tuneflowApi from "./api/api";
 import jwt from "jsonwebtoken";
 import {BrowserRouter} from "react-router-dom";
-import Navigation from "../Nav-Routes/Navigation";
-import MainRoutes from "../Nav-Routes/MainRoutes";
-import DataContext from "../helpers/DataContext";
+import Navigation from "./Nav-Routes/Navigation";
+import MainRoutes from "./Nav-Routes/MainRoutes";
+import DataContext from "./helpers/DataContext";
+import LoadingSpinner from "./common/LoadingSpinner";
+
 
 // Key name for storing token in localStorage for "remember me" re-login
 export const TOKEN_ID = "tuneflow-token";
@@ -73,6 +75,8 @@ function App() {
     }
   }
 
+
+  if(!infoLoaded) return <LoadingSpinner />
 
   return (
     <div>
