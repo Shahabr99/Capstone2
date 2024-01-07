@@ -1,33 +1,33 @@
 {
-  "$schema": "https://json-schema.org/draft/2019-09/schema",
-  "$id": "http://example.com/example.json",
-  "type": "object",
-  "default": {},
-  "title": "Root Schema",
-  "required": [
-      "username",
-      "password"
-  ],
-  "properties": {
-      "username": {
-          "type": "string",
-          "default": "",
-          "title": "The username Schema",
-          "examples": [
-              ""
-          ]
-      },
-      "password": {
-          "type": "string",
-          "default": "",
-          "title": "The password Schema",
-          "examples": [
-              ""
-          ]
-      }
-  },
-  "examples": [{
-      "username": "",
-      "password": ""
-  }]
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "$id": "http://example.com/example.json",
+    "type": "object",
+    "default": {},
+    "title": "Root Schema",
+    "required": [
+        "username",
+        "password"
+    ],
+    "properties": {
+        "username": {
+            "type": "string",
+            "default": "",
+            "title": "The username Schema",
+            "examples": [
+                "tester"
+            ]
+        },
+        "password": {
+            "type": "string",
+            "default": "",
+            "title": "The password Schema",
+            "examples": [
+                "test1234"
+            ]
+        }
+    },
+    "examples": [{
+        "username": "tester",
+        "password": "test1234"
+    }]
 }

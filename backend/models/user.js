@@ -34,12 +34,13 @@ class User {
   }
 
   // find the user in database and check if the password is correct
-  static async authenticate({username, password}) {
-    const result = await db.query(`SELECT username, password, name, lastname FROM users WHERE username = $1`, [username]);
+  static async authenticate(data) {
+    console.log(data)
+    const result = await db.query(`SELECT username, password, name, lastname FROM users WHERE username = $1`, [data.username]);
     const user = result.rows[0];
 
     if(!user) {
-      throw new NotFoundError(`username ${username} does not exist!`)
+      throw new NotFoundError(`username ${data.username} does NOT exist!`)
     }
 
     const valid_pwd = bcrypt.compare(password, user.password);

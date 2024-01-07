@@ -10,6 +10,7 @@ const loginSchema = require("../schemas/login.json")
 
 router.post("/login", async function(req, res, next) {
   try {
+    console.log(req.body)
     const validator = jsonSchema.validate(req.body, loginSchema);
     if(!validator.valid) {
       const errs = validator.errors.map(e => e.stack);

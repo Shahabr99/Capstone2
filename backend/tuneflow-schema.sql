@@ -7,7 +7,7 @@ CREATE TABLE users (
 );
 
 CREATE TABLE playlists (
-  id INTEGER PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   name TEXT NOT NULL,
   username_playlist VARCHAR(25) REFERENCES users(username) ON DELETE CASCADE
 ); 
@@ -20,7 +20,7 @@ CREATE TABLE artists (
 
 
 CREATE TABLE tracks (
-  id INTEGER PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   title TEXT NOT NULL,
   image_url TEXT,
   length int,
@@ -29,7 +29,7 @@ CREATE TABLE tracks (
 
 
 CREATE TABLE playlists_tracks (
-  id INTEGER PRIMARY KEY,
-  playlist_name INTEGER REFERENCES playlists(name) ON DELETE CASCADE,
+  id SERIAL PRIMARY KEY,
+  playlist_id INTEGER REFERENCES playlists(id) ON DELETE CASCADE,
   track_id INTEGER REFERENCES tracks(id) ON DELETE CASCADE
 );

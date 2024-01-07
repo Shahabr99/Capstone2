@@ -42,6 +42,7 @@ class tuneflowApi {
 
 
   static async login(data) {
+    console.log(data)
     const res = await this.request("/login", data, "post");
     return res.token;
   }
